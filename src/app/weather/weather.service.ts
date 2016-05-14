@@ -10,6 +10,8 @@ export class WeatherService {
     }
 
     getLocationWeather(lat: number, lng: number) {
+        
+        var url = `http://opendata-download-metfcst.smhi.se/api/category/pmp1.5g/version/1/geopoint/lat/${lat}/lon/${lng}/data.json`;
         var search = new URLSearchParams();
         search.set('lat', '' + lat);
         search.set('lon', '' + lng);
@@ -17,9 +19,7 @@ export class WeatherService {
         search.set('APPID', this.apiKey);
 
         return this.http
-            .get('http://api.openweathermap.org/data/2.5/weather', { search })
-            .map((response) => {
-                return response.json();
-            });
+              .get(url)
+              .map((response) => response.json());
     }
 }

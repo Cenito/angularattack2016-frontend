@@ -25,6 +25,7 @@
  
  .wind {
      font-weight: 900;
+     min-width: 120px;
  }
 
  
@@ -45,12 +46,14 @@
      .weather .icon {
          font-size: 64px;
      }
+     
      .temp {
          font-size: 14px;
          margin-top: 0;
-         width: auto;
+         width: initial; 
          line-height: 1;
      }
+     
      .wind {
          font-size: 10px;
          line-height: 1;
