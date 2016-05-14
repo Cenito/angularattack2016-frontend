@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
+import { Database } from './db';
+import { Beaches } from './beaches';
 
 @Component({
   selector: 'app',
-  template: '<h1>AngularAttack 2016</h1><p>Cenitoon project runs!</p>'
+  providers: [ Database ],
+  directives: [ Beaches ],
+  template: require('./app.html')
 })
 
 export class App {
   
-  constructor() {}
+  constructor(public database: Database) {}
   
   ngOnInit() {
     console.log('It works!');
