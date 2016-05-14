@@ -13,8 +13,13 @@ import { WeatherDetails } from '../weather';
 export class BeachDetails {
     
     @Input() beach: Beach;
+    private showDetails: boolean = false;
     
     ngAfterContentInit() {
         this.beach.BWName = this.beach.BWName.toLowerCase();
+    }
+    
+    toggleDetails() {
+        this.showDetails = !this.showDetails;    
     }
 }
