@@ -3,14 +3,10 @@ import { Observable } from 'rxjs/Observable';
 
 import { Database } from '../db';
 import { GoogleMapsService } from '../maps/google.maps.service';
-<<<<<<< HEAD
 import { IBeach } from './beach'
 import { Beach } from './beach.component';
-=======
-import { Beach } from './beach';
 import { map } from '../map';
 import { filter } from '../filter';
->>>>>>> eee7028c74d9cb0ffd642dfe86b8e7466318a4e2
 
 @Component({
     selector: 'beaches',
@@ -23,12 +19,8 @@ import { filter } from '../filter';
 })
 
 export class Beaches {
-<<<<<<< HEAD
 
     beaches: Array<IBeach>;
-=======
-    beaches: Array<Beach>;
->>>>>>> eee7028c74d9cb0ffd642dfe86b8e7466318a4e2
 
     constructor(private db: Database, private mapsService: GoogleMapsService) {
         this.beaches = [];
