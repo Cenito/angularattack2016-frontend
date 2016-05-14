@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Subscriber } from 'rxjs/Subscriber';
+import { Beach } from '../beaches/beach';
 
 declare var Socketize: any;
 
@@ -7,8 +9,8 @@ declare var Socketize: any;
 export class Database {
 
     socket: any;
-    beaches: Observable<any>;
-    beach_list: any;
+    beaches: Observable<Beach>;
+    beachObserver: Subscriber<Array<Beach>>;
      
     constructor() {
         var params = {
@@ -20,14 +22,14 @@ export class Database {
         }
         
         
-        this.beaches = new Observable((observer) => {
-            this.beach_list = observer;
+        this.beaches = new Observable<Beach>((observer) => {
+            this.beachObserver = observer;
         });
         
         this.socket = new Socketize.client(params);    
         this.socket.on('login', (user) => {
             var beaches = require('../../data/beaches/se-2014.json');        
-            this.beach_list.next(beaches);
+            this.beachObserver.next(beaches);
         });     
         
     }

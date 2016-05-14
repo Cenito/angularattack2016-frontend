@@ -10,6 +10,12 @@ import { DIRECTIVES, PIPES, PROVIDERS } from './platform/browser';
 import { ENV_PROVIDERS } from './platform/environment';
 
 /*
+* Additional directives for our app
+*/
+import { ANGULAR2_GOOGLE_MAPS_PROVIDERS } from 'angular2-google-maps/core';
+import { GoogleMapsService } from './app/maps/google.maps.service';
+
+/*
 * App Component
 * our top level component that holds all of our components
 */
@@ -25,7 +31,9 @@ export function main(initialHmrState?: any): Promise<any> {
     ...PROVIDERS,
     ...ENV_PROVIDERS,
     ...DIRECTIVES,
-    ...PIPES
+    ...PIPES,
+    ANGULAR2_GOOGLE_MAPS_PROVIDERS,
+    GoogleMapsService
   ])
   .catch(err => console.error(err));
 
