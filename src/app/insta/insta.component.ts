@@ -24,7 +24,7 @@ export class InstaBeach  {
     ngAfterContentInit() {
        if(this.beach && this.beach.BWName === 'SKABERSJÖVILLAN') {
            
-            this.items = this.instaService.getLocationInfo(this.beach.Latitude_BW, this.beach.Longitude_BW).flatMap(data => {
+            this.items = this.instaService.getLocationInfo(this.beach.Latitude_BW.toString(), this.beach.Longitude_BW.toString()).flatMap(data => {
                 return this.instaService.getImages(data[0].id);
             });
         } 
