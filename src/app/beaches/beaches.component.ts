@@ -3,7 +3,8 @@ import { Observable } from 'rxjs/Observable';
 
 import { Database } from '../db';
 import { GoogleMapsService } from '../maps/google.maps.service';
-import { Beach } from './beach'
+import { Beach } from './beach';
+import { map } from '../map';
 
 @Component({
     selector: 'beaches',
@@ -14,7 +15,6 @@ import { Beach } from './beach'
 })
 
 export class Beaches {
-
     beaches: Array<Beach>;
 
     constructor(private db: Database, private mapsService: GoogleMapsService) {
@@ -25,30 +25,18 @@ export class Beaches {
 
     calculateDistance(data) {
         this.beaches.push(...data);
-        this.map(this.beaches, (beach, index) => {
-            if (index > 5) return;
+        
+        map(this.beaches, (beach, index) => {
             this.mapsService
-                .getDistanceToDestination(beach.Latitude_BW, beach.Longitude_BW, beach.BWName)
+                .getDistanceToDestination({latitude: beach.Latitude_BW, longitude: beach.Longitude_BW, name: beach.BWName})
                 .then((result) => {
-                    var response = result.response;
-                    var minimum = undefined;
-                    this.map(response.rows, (row) => {
-                        this.map(row.elements, (element) => {
-                            if (minimum == undefined ||  element.distance < minimum.distance) {
-                                minimum = element;
-                            }
-                        });
-                    });
-                    beach.distance = minimum;
-                    beach.distanceText = beach.distance.distance.text;
+                    if (!result.response || !result.response.distance) {
+                        console.log('no results', result.response.status);
+                        return;
+                    }
+                    beach.distance = result.response;
+                    beach.distanceText = result.response.distance.text;
                 });
         });
-
-    }
-
-    map(array: Array<any>, fn) {
-        for (let i = 0; i < array.length; ++i) {
-            fn(array[i], i);
-        }
     }
 }
