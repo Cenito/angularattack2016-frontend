@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { InstaService } from './';
+import { IBeach } from '../beaches';
+
 
 @Component({
     moduleId: module.id,
@@ -8,18 +10,25 @@ import { InstaService } from './';
     // templateUrl: 'insta.component.html'
     template: require('./insta.component.html')
 })
-export class InstaBeach implements OnInit {
+export class InstaBeach  {
     
     items: Observable<any>;
     
+    @Input() beach: IBeach;
+    
     constructor(private instaService: InstaService) {
+       
         
-        this.items = this.instaService.getLocationInfo('55.53008','13.16625').flatMap(data => {
-            console.log("Finished first data");
-            return this.instaService.getImages(data[0].id);
-        });
      }
 
-    ngOnInit() { }
+    ngAfterContentInit() {
+       if(this.beach && this.beach.BWName === 'SKABERSJÖVILLAN') {
+           
+            this.items = this.instaService.getLocationInfo(this.beach.Latitude_BW, this.beach.Longitude_BW).flatMap(data => {
+                console.log("Finished first data", data);
+                return this.instaService.getImages(data[0].id);
+            });
+        } 
+     }
 
 }

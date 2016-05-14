@@ -3,19 +3,22 @@ import { Observable } from 'rxjs/Observable';
 
 import { Database } from '../db';
 import { GoogleMapsService } from '../maps/google.maps.service';
-import { Beach } from './beach'
+import { IBeach } from './beach'
+import { Beach } from './beach.component';
 
 @Component({
     selector: 'beaches',
+    directives: [ Beach ],
     template: `
-    <ul> <li *ngFor="let beach of beaches" *ngIf="beach">Name: {{ beach.BWName }}<br>
-    ({{ beach.Longitude_BW }}, {{ beach.Latitude_BW }} ) {{beach.distanceText}}</li> </ul>
+    <div class="row" *ngFor="let beach of beaches"><beach [beach]="beach"></beach><br>
+    Name: {{ beach.BWName }}<br>
+    ({{ beach.Longitude_BW }}, {{ beach.Latitude_BW }} ) {{beach.distanceText}}</div>
     `
 })
 
 export class Beaches {
 
-    beaches: Array<Beach>;
+    beaches: Array<IBeach>;
 
     constructor(private db: Database, private mapsService: GoogleMapsService) {
         this.beaches = [];

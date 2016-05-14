@@ -3,13 +3,12 @@ import { Database } from './db';
 import { Beaches } from './beaches';
 import { GoogleMapsComponent } from './maps/google.maps.component';
 import { InstaService } from './insta';
-import { InstaBeach } from './insta';
 import { JSONP_PROVIDERS } from '@angular/http';
 
 @Component({
   selector: 'app',
   providers: [ Database, InstaService, JSONP_PROVIDERS ],
-  directives: [ Beaches, GoogleMapsComponent, InstaBeach ],
+  directives: [ Beaches, GoogleMapsComponent ],
   template: require('./app.html')
 })
 

@@ -1,4 +1,4 @@
-export interface Beach {
+export interface IBeach {
     cc: string;
     BWID: string;
     BWName: string;
@@ -7,8 +7,8 @@ export interface Beach {
     Region: string;
     Province: string;
     Commune: string;
-    Longitude_BW:number;
-    Latitude_BW:number;
+    Longitude_BW:string;
+    Latitude_BW:string;
     distance?: any;
     distanceText: string;
 }
