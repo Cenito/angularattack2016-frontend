@@ -8,7 +8,7 @@ export class InstaServiceMock {
         console.log("InstaServiceMock");
     }
 
-    getLocationInfo(lat: string, lng: string) {
+    getLocationInfo(lat: number, lng: number) {
 
         return new Observable(observer => {
             observer.next([{ id: this.randomInt(42, 42424242) }])
