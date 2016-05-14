@@ -15,9 +15,6 @@ export class BeachDetails {
     @Input() beach: Beach;
     
     ngAfterContentInit() {
-        
-        if(this.beach.BWName === 'SKABERSJÖVILLAN') {
-            
-        }
+        this.beach.BWName = this.beach.BWName.toLowerCase();
     }
 }

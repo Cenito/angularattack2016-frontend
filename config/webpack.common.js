@@ -17,7 +17,7 @@ const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin
  * Webpack Constants
  */
 const METADATA = {
-  title: 'Angular Attack 2016 - BadAss Beaches - Cenitoon',
+  title: 'BadAss Beaches - Angular Attack 2016 by Cenito',
   baseUrl: '/'
 };
 

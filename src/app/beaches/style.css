@@ -2,7 +2,7 @@
 .beach {
     position: relative;
     padding: 2px 10px;
-    
+    height: 150px;
     background-color: white;
     margin-bottom: 15px;
     border: 1px solid transparent;
@@ -52,6 +52,9 @@ h2 {
     clear: left;
     color: rgb(41,171,225);	
     font-size: 48px;
+    text-transform: capitalize;
+    white-space: nowrap;
+    
 }
 
 @media (max-width:799px) {
