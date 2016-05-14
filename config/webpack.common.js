@@ -107,7 +107,7 @@ module.exports = {
        *
        * See: https://github.com/wbuchwalter/tslint-loader
        */
-       // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
+      // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
 
       /*
        * Source map loader support for *.js files
@@ -149,6 +149,11 @@ module.exports = {
         exclude: [/\.(spec|e2e)\.ts$/]
       },
 
+      // Fontgen support, has to before json support
+      {
+        test: /\.font.(js|json)$/,
+        loader: 'style!css!fontgen'
+      },
       /*
        * Json loader support for *.json files.
        *
@@ -165,11 +170,11 @@ module.exports = {
        *
        * See: https://github.com/webpack/raw-loader
        */
-      {
-        test: /\.css$/,
-        loader: 'raw-loader'
+      // CSS loader
+      { 
+        test: /\.css$/, 
+        loader: 'style-loader!css-loader' 
       },
-
       /* Raw loader support for *.html
        * Returns file content as string
        *
@@ -179,8 +184,17 @@ module.exports = {
         test: /\.html$/,
         loader: 'raw-loader',
         exclude: [helpers.root('src/index.html')]
+      },
+      // SVG templates
+      {
+        test: /\.svg$/,
+        loader: 'raw-loader'
+      },
+      
+      {
+        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        loader: 'file-loader'
       }
-
     ]
 
   },

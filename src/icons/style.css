@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('./fonts/icomoon.woff?jw7fk4') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-BathTemp:before {
+    content: "\e900";
+}
+.icon-Bike:before {
+    content: "\e901";
+}
+.icon-Bus:before {
+    content: "\e902";
+}
+.icon-CloudAndSun:before {
+    content: "\e903";
+}
+.icon-Cloudy:before {
+    content: "\e904";
+}
+.icon-Drive:before {
+    content: "\e905";
+}
+.icon-Rainy:before {
+    content: "\e906";
+}
+.icon-Sunny:before {
+    content: "\e907";
+}
+.icon-Thunder:before {
+    content: "\e908";
+}
+.icon-Walk:before {
+    content: "\e909";
+}
+
