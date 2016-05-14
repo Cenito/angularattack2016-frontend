@@ -191,6 +191,8 @@ module.exports = {
         loader: 'raw-loader'
       },
       
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=10192' },
+      
       {
         test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
         loader: 'file-loader'

@@ -7,6 +7,7 @@ import { WeatherDetails } from '../weather';
 @Component({
     selector: 'beach-details',
     directives: [ InstaBeach, WeatherDetails ],
+    styles: [ '' + require('./style.css') ],
     template: require('./beach.html')
 })
 export class BeachDetails {
