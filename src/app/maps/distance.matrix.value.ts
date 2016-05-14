@@ -1,4 +1,4 @@
 export interface DistanceMatrixValue {
-    text: string;
-    value: number;
+    text?: string;
+    value?: number;
 }

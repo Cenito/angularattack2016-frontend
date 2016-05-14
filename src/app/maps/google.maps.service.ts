@@ -11,15 +11,27 @@ export class GoogleMapsService {
     private currentCoordinateRequest: Promise<Position>;
     private promises: Array<[string, Promise<DistanceResponse>]>;
 
-    private currentBucket: Array<any>;
+    private currentBucket: any;
     private currentPosition: Position;
-    
+
     private waitCounter: number = 0;
-    private handle: number;
+    private handle: any;
+    
+    travelModes: Array<any>= [
+        google.maps.TravelMode.WALKING,
+        google.maps.TravelMode.BICYCLING,
+        google.maps.TravelMode.TRANSIT,
+        google.maps.TravelMode.DRIVING
+    ];
 
     constructor() {
         this.service = new google.maps.DistanceMatrixService();
-        this.currentBucket = [];
+        this.currentBucket = {
+            WALKING:[], BICYCLING:[], TRANSIT:[], DRIVING:[]
+        };
+        this.handle = {
+            WALKING:0, BICYCLING:0, TRANSIT:0, DRIVING:0
+        };
         this.promises = [];
     }
 
@@ -38,7 +50,7 @@ export class GoogleMapsService {
     }
 
     getDistanceToDestination(request: DistanceRequest) {
-        return this.createPromise(request.latitude + '_' + request.latitude, (res, rej) => {
+        return this.createPromise(request.latitude + '_' + request.latitude + '_' + request.travelMode, (res, rej) => {
             request.resolve = res;
             request.reject = rej;
             this.wall(25, request, (group) => { this.handleGroup(this, group); });
@@ -46,20 +58,20 @@ export class GoogleMapsService {
     }
 
     private wall(count: number, request: DistanceRequest, callback: (group: Array<DistanceRequest>) => void) {
-        this.currentBucket.push(request);
-        window.clearTimeout(this.handle);
-        if (this.currentBucket.length >= 25) {
-            var handleBucket = this.currentBucket;
-            this.currentBucket = [];
+        this.currentBucket[request.travelMode].push(request);
+        window.clearTimeout(this.handle[request.travelMode]);
+        if (this.currentBucket[request.travelMode].length >= 25) {
+            var handleBucket = this.currentBucket[request.travelMode];
+            this.currentBucket[request.travelMode] = [];
             window.setTimeout(() => {
                 callback(handleBucket);
             }, this.waitCounter * 3000);
             ++this.waitCounter;
         }
         else {
-            this.handle = window.setTimeout(() => {
-                var handleBucket = this.currentBucket;
-                this.currentBucket = [];
+            this.handle[request.travelMode] = window.setTimeout(() => {
+                var handleBucket = this.currentBucket[request.travelMode];
+                this.currentBucket[request.travelMode] = [];
                 callback(handleBucket);
             }, 10000);
         }
