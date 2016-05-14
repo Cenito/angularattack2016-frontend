@@ -7,8 +7,8 @@ export interface IBeach {
     Region: string;
     Province: string;
     Commune: string;
-    Longitude_BW:string;
-    Latitude_BW:string;
+    Longitude_BW:number;
+    Latitude_BW:number;
     distance?: any;
     distanceText: string;
     rawDistance: number;

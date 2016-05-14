@@ -66,6 +66,9 @@ export class GoogleMapsService {
     }
 
     private handleGroup(context: any, group: Array<DistanceRequest>) {
+        if (group.length == 0) {
+            return;
+        }
         context.getCurrentLocation().then((currentPosition) => {
             var currentLocation = new google.maps.LatLng(currentPosition.coords.latitude, currentPosition.coords.longitude);
             var destinations = map(group, (item) => { return new google.maps.LatLng(item.latitude, item.longitude); });
@@ -74,7 +77,7 @@ export class GoogleMapsService {
                 {
                     origins: [currentLocation],
                     destinations: destinations,
-                    travelMode: google.maps.TravelMode.WALKING,
+                    travelMode: group[0].travelMode,
                     transitOptions: null,
                     drivingOptions: null,
                     unitSystem: google.maps.UnitSystem.METRIC,
