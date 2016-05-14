@@ -6,8 +6,8 @@ import { Database } from '../db';
 @Component({
     selector: 'beaches',
     template: `
-    <ul> <li *ngFor="#beach of beaches|async">City: {{ beach.city }}<br>
-    Name: {{ beach.name }}</li> </ul>
+    <ul> <li *ngFor="#beach of beaches|async" *ngIf="beach">Name: {{ beach.BWName }}<br>
+    ({{ beach.Longitude_BW }}, {{ beach.Latitude_BW }} )</li> </ul>
     `
 })
 

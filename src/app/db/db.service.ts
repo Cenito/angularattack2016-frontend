@@ -19,21 +19,17 @@ export class Database {
             }
         }
         
+        
         this.beaches = new Observable((observer) => {
             this.beach_list = observer;
         });
         
         this.socket = new Socketize.client(params);    
-        this.socket.on('login', (user) => {        
-            this.getBeaches()
-                .then((data) => {
-                    this.beaches = data; 
-                    this.beach_list.next(this.beaches);
-            });     
-        });
+        this.socket.on('login', (user) => {
+            var beaches = require('../../data/beaches/se-2014.json');        
+            this.beach_list.next(beaches);
+        });     
+        
     }
     
-    getBeaches() {
-        return this.socket.getListItems('beaches')
-    }
 }
