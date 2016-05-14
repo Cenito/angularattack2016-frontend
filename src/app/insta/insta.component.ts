@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 // import { InstaService } from './';
 import { InstaServiceMock } from './';
-import { IBeach } from '../beaches';
+import { Beach } from '../beaches';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class InstaBeach  {
     
     items: Observable<any>;
     
-    @Input() beach: IBeach;
+    @Input() beach: Beach;
     
     constructor(private instaService: InstaServiceMock) {
        

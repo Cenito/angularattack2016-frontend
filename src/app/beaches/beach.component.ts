@@ -1,17 +1,17 @@
 import { Component, Input } from '@angular/core';
 
 import { InstaBeach } from '../insta';
-import { IBeach } from './beach';
+import { Beach } from './';
 import { WeatherDetails } from '../weather';
 
 @Component({
-    selector: 'beach',
+    selector: 'beach-details',
     directives: [ InstaBeach, WeatherDetails ],
     template: require('./beach.html')
 })
-export class Beach {
+export class BeachDetails {
     
-    @Input() beach: IBeach;
+    @Input() beach: Beach;
     
     ngAfterContentInit() {
         

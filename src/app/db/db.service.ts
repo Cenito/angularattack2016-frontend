@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';
-import { IBeach } from '../beaches/beach';
+import { Beach } from '../beaches/beach';
 
 declare var Socketize: any;
 
@@ -9,8 +9,8 @@ declare var Socketize: any;
 export class Database {
 
     socket: any;
-    beaches: Observable<Array<IBeach>>;
-    beachObserver: Subscriber<Array<IBeach>>;
+    beaches: Observable<Array<Beach>>;
+    beachObserver: Subscriber<Array<Beach>>;
      
     constructor() {
         var params = {
@@ -22,7 +22,7 @@ export class Database {
         }
         
         
-        this.beaches = new Observable<Array<IBeach>>((observer) => {
+        this.beaches = new Observable<Array<Beach>>((observer) => {
             this.beachObserver = observer;
         });
         

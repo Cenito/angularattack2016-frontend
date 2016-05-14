@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Database } from '../db';
 import { GoogleMapsService } from '../maps/google.maps.service';
 import { DistanceRequest } from '../maps/distance.request';
-import { IBeach } from './beach'
-import { Beach } from './beach.component';
+import { Beach } from './beach'
+import { BeachDetails } from './beach.component';
 import { map } from '../map';
 import { filter } from '../filter';
 
@@ -14,10 +14,10 @@ declare var google;
 
 @Component({
     selector: 'beaches',
-    directives: [Beach],
+    directives: [BeachDetails],
     template: `
     <div class="row" *ngFor="let beach of beaches">
-      <beach [beach]="beach"></beach>
+      <beach-details [beach]="beach"></beach-details>
     <div>({{ beach.Longitude_BW }}, {{ beach.Latitude_BW }} )</div>
     <div *ngIf="beach.matrix.WALKING.distance">
         <h5>Walking</h5> 
@@ -44,7 +44,7 @@ declare var google;
 })
 export class Beaches {
 
-    beaches: Array<IBeach>;
+    beaches: Array<Beach>;
 
     constructor(private db: Database, private mapsService: GoogleMapsService) {
         this.beaches = [];
@@ -52,7 +52,7 @@ export class Beaches {
         beachRequest.subscribe((data) => { this.calculateDistance(data); });
     }
 
-    calculateDistance(data: Array<IBeach>) {
+    calculateDistance(data: Array<Beach>) {
         this.mapsService.getCurrentLocation().then((location) => {
             var filtered = filter(data, (item) => {
                 var a = Math.abs(location.coords.latitude - item.Latitude_BW);

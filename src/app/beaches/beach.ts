@@ -1,5 +1,6 @@
 import { DistanceMatrix } from '../maps/distance.matrix';
-export interface IBeach {
+
+export interface Beach {
     cc: string;
     BWID: string;
     BWName: string;

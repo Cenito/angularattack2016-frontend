@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 
-import { IBeach } from '../beaches';
+import { Beach } from '../beaches';
 import { WeatherService } from './weather.service';
 
 @Component({
@@ -18,7 +18,7 @@ import { WeatherService } from './weather.service';
 })
 export class WeatherDetails implements OnInit {
     
-    @Input() location: IBeach;
+    @Input() location: Beach;
     cloudy: number;
     temperature: number;
     windSpeed: number;
