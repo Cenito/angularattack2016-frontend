@@ -9,6 +9,9 @@ import { Beach } from './beach.component';
 import { map } from '../map';
 import { filter } from '../filter';
 
+
+declare var google;
+
 @Component({
     selector: 'beaches',
     directives: [ Beach ],
@@ -16,7 +19,6 @@ import { filter } from '../filter';
     <div class="row" *ngFor="let beach of beaches"><beach [beach]="beach"></beach></div>
     `
 })
-
 export class Beaches {
 
     beaches: Array<IBeach>;
