@@ -11,4 +11,5 @@ export interface Beach {
     Latitude_BW:number;
     distance?: any;
     distanceText: string;
+    rawDistance: number;
 }

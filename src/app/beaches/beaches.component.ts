@@ -30,8 +30,11 @@ export class Beaches {
                 var a = Math.abs(location.coords.latitude - item.Latitude_BW);
                 var b = Math.abs(location.coords.longitude - item.Longitude_BW);
                 var c = Math.sqrt(a * a + b * b);
+                item.rawDistance = c;
                 return c < 1;
-            });
+            }).sort((a,b) => {
+                return a.rawDistance > b.rawDistance ? 1 : -1;
+            })
             map(filtered, (beach, index) => {
                 this.beaches.push(beach);
                 this.mapsService

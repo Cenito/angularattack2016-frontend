@@ -1,9 +1,9 @@
-import { DistanceResult } from './distance.result';
+import { DistanceResponse } from './distance.response';
 export interface DistanceRequest {
     latitude: number;
     longitude: number;
     name: string;
     
-    resolve?: (result: DistanceResult) => void;
+    resolve?: (result: DistanceResponse) => void;
     reject?: (error: any) => void;
 }
