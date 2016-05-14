@@ -9,7 +9,7 @@ declare var Socketize: any;
 export class Database {
 
     socket: any;
-    beaches: Observable<Beach>;
+    beaches: Observable<Array<Beach>>;
     beachObserver: Subscriber<Array<Beach>>;
      
     constructor() {
@@ -22,7 +22,7 @@ export class Database {
         }
         
         
-        this.beaches = new Observable<Beach>((observer) => {
+        this.beaches = new Observable<Array<Beach>>((observer) => {
             this.beachObserver = observer;
         });
         
