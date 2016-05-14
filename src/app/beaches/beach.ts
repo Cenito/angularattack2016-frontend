@@ -15,4 +15,6 @@ export interface Beach {
 
     matrix?: DistanceMatrix;
     rawDistance?: number;
+    
+    waterTemperature?: number;
 }

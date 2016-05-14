@@ -18,27 +18,6 @@ declare var google;
     template: `
     <div class="row" *ngFor="let beach of beaches">
       <beach-details [beach]="beach"></beach-details>
-    <div>({{ beach.Longitude_BW }}, {{ beach.Latitude_BW }} )</div>
-    <div *ngIf="beach.matrix.WALKING.distance">
-        <h5>Walking</h5> 
-        <span [innerHTML]="beach.matrix.WALKING.distance.text"></span>
-        <span [innerHTML]="beach.matrix.WALKING.duration.text"></span>
-    </div>
-    <div *ngIf="beach.matrix.BICYCLING.distance">
-        <h5>By bike</h5> 
-        <span [innerHTML]="beach.matrix.BICYCLING.distance.text"></span>
-        <span [innerHTML]="beach.matrix.BICYCLING.duration.text"></span>
-    </div>
-    <div *ngIf="beach.matrix.TRANSIT.distance">
-        <h5>Transit</h5> 
-        <span [innerHTML]="beach.matrix.TRANSIT.distance.text"></span>
-        <span [innerHTML]="beach.matrix.TRANSIT.duration.text"></span>
-    </div>
-    <div *ngIf="beach.matrix.DRIVING.distance">
-        <h5>Driving</h5> 
-        <span [innerHTML]="beach.matrix.DRIVING.distance.text"></span>
-        <span [innerHTML]="beach.matrix.DRIVING.duration.text"></span>
-    </div>
     </div>
     `
 })

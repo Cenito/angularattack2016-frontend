@@ -21,6 +21,7 @@ import { GoogleMapsService } from './app/maps/google.maps.service';
 * our top level component that holds all of our components
 */
 
+require('../node_modules/bootstrap/dist/css/bootstrap.css');
 require('./assets/css/main.css');
 
 import { App } from './app';

@@ -1,8 +1,34 @@
-<div class="beach">
-    <h2>{{ beach.BWName }}</h2>
-    <ul>
-        <li class="distance">{{ beach.distanceText }}</li>
-    </ul>
-    <weather-details [location]="beach"></weather-details>
-    <insta-beach [beach]="beach"></insta-beach>
+<div class="col-xs-12 beach">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="list-inline map-info">
+                <li class="list-inline-item" *ngIf="beach.matrix.WALKING.distance">
+                    <i class="icon icon-Walk"></i>
+                    <span [innerHTML]="beach.matrix.WALKING.duration.text"></span>
+                </li>
+                <li class="list-inline-item" *ngIf="beach.matrix.BICYCLING.distance">
+                    <i class="icon icon-Bike"></i>
+                    <span [innerHTML]="beach.matrix.BICYCLING.duration.text"></span>
+                </li>
+                <li class="list-inline-item" *ngIf="beach.matrix.TRANSIT.distance">
+                    <i class="icon icon-Bus"></i>
+                    <span [innerHTML]="beach.matrix.TRANSIT.duration.text"></span>
+                </li>
+                <li class="list-inline-item" *ngIf="beach.matrix.DRIVING.distance">
+                    <i class="icon icon-Drive"></i>
+                    <span [innerHTML]="beach.matrix.DRIVING.duration.text"></span></li>
+            </ul>
+        </div>
+        <div class="col-xs-7 col-sx-9">
+            <h2>{{ beach.BWName }}</h2>
+        </div>
+        <div class="col-xs-5 col-sx-3">
+            <weather-details [location]="beach"></weather-details>
+        </div>
+
+        <ul class="list-inline water-info">
+            <li class="list-inline-item">Water quality: Excellent</li>
+            <li class="list-inline-item"><i class="icon icon-BathTemp"> {{ beach.waterTemperature }}&#8451;</i></li>
+        </ul>
+    </div>
 </div>
