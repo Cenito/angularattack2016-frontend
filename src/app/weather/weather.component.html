@@ -2,10 +2,11 @@
     <div class="">
         <i class="icon" [ngClass]="{
         'icon-Sunny': cloudy<5,
-        'icon-CloudAndSun': cloudy>=5 && cloudy<10,
-        'icon-Cloudy': cloudy>=10 }"></i>
-        <span class="temp">{{ temperature }}C</span>
-        <span class="wind">{{ windSpeed }}m/s</span>
+        'icon-CloudAndSun': cloudy>=5 && cloudy<50,
+        'icon-Cloudy': cloudy>=50 }"></i>
+        <span class="temp">{{ temperature }} °C</span>
+        <span class="wind">{{ windSpeed }} m/s</span>
+        <span class="wind">{{ cloudy }} %</span>
     </div>
     <i class="icon icon-BathTemp"></i>
 
