@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'roboto';
+    src: url('../fonts/roboto/Roboto-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #efdbcd;
+    color: #726057;
+    font-family: "roboto";
+    padding: 0;
+    margin: 0;
+}
+
+header img {
+    width: 100%;
+}

@@ -3,10 +3,11 @@ import { Component, Input } from '@angular/core';
 import { InstaBeach } from '../insta';
 import { Beach } from './';
 import { WeatherDetails } from '../weather';
+import { VotingComponent } from '../voting';
 
 @Component({
     selector: 'beach-details',
-    directives: [ InstaBeach, WeatherDetails ],
+    directives: [ InstaBeach, WeatherDetails, VotingComponent ],
     styles: [ '' + require('./style.css') ],
     template: require('./beach.html')
 })

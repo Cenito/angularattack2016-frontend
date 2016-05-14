@@ -7,12 +7,13 @@ import { GoogleMapsComponent } from './maps/google.maps.component';
 import { InstaService } from './insta';
 import { InstaServiceMock } from './insta';
 import { WeatherService } from './weather';
+import { VotingService } from './voting';
 
 require('../icons/style.css');
 
 @Component({
   selector: 'app',
-  providers: [ Database, InstaServiceMock, WeatherService, JSONP_PROVIDERS ],
+  providers: [ Database, InstaServiceMock, WeatherService, VotingService, JSONP_PROVIDERS ],
   directives: [ Beaches, GoogleMapsComponent ],
   template: require('./app.html')
 })
