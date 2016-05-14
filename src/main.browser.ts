@@ -52,7 +52,6 @@ export function main(initialHmrState?: any): Promise<any> {
  * Also see custom-typings.d.ts as you also need to do `typings install x` where `x` is your module
  */
 
-
 /*
  * Hot Module Reload
  * experimental version by @gdi2290

@@ -16,8 +16,8 @@ declare var google;
     selector: 'beaches',
     directives: [Beach],
     template: `
-    <div class="row" *ngFor="let beach of beaches"><beach [beach]="beach"></beach><br>
-    Name: {{ beach.BWName }}<br>
+    <div class="row" *ngFor="let beach of beaches">
+      <beach [beach]="beach"></beach>
     <div>({{ beach.Longitude_BW }}, {{ beach.Latitude_BW }} )</div>
     <div *ngIf="beach.matrix.WALKING.distance">
         <h5>Walking</h5> 

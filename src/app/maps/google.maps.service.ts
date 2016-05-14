@@ -4,6 +4,8 @@ import { DistanceResponse } from './distance.response';
 import { DistanceRequest } from './distance.request';
 import { map } from '../map';
 
+declare var google;
+
 @Injectable()
 export class GoogleMapsService {
 

@@ -17,8 +17,6 @@ import { WeatherService } from './weather.service';
     template: require('./weather.component.html')
 })
 export class WeatherDetails implements OnInit {
-
-    weather: Observable<any>;
     
     @Input() location: IBeach;
     cloudy: number;
@@ -35,7 +33,8 @@ export class WeatherDetails implements OnInit {
 
     ngAfterContentInit() {
         if (this.location.BWName === 'SKABERSJÖVILLAN') {
-            this.weather = this.weatherService.getLocationWeather(this.location.Latitude_BW, this.location.Longitude_BW)
+            try {
+            this.weatherService.getLocationWeather(this.location.Latitude_BW, this.location.Longitude_BW)
                 .subscribe((weather) => {
 
                     if (weather.timeseries.length) {
@@ -45,7 +44,19 @@ export class WeatherDetails implements OnInit {
                         this.temperature = now.t;
                         this.windSpeed = now.ws;
                     }
+                },
+                (error) => {
+                    this.cloudy = 0;
+                    this.temperature = 0;
+                    this.windSpeed = 0;
                 });
+            } catch (e) {
+                    this.cloudy = 0;
+                    this.temperature = 0;
+                    this.windSpeed = 0;
+                
+            }
+            
         }
     }
 
