@@ -24,13 +24,18 @@ export class WeatherDetails implements AfterContentInit {
     constructor(private weatherService: WeatherService) {  }
 
     ngAfterContentInit() {
-        this.weatherService.getLocationWeather(this.location.Latitude_BW, this.location.Longitude_BW)
-            .subscribe((weather) => {
+                 this.cloudy = 10;
+                 this.temperature = 22;
+                 this.windSpeed = 3;
+                 this.location.waterTemperature = 26;
+        
+        // this.weatherService.getLocationWeather(this.location.Latitude_BW, this.location.Longitude_BW)
+        //     .subscribe((weather) => {
 
-                this.cloudy = weather.clouds.all;
-                this.temperature = weather.main.temp;
-                this.windSpeed = weather.wind.speed;
-                this.location.waterTemperature = 26;
-            });
+        //         this.cloudy = weather.clouds.all;
+        //         this.temperature = weather.main.temp;
+        //         this.windSpeed = weather.wind.speed;
+        //         this.location.waterTemperature = 26;
+        //     });
     }
 }

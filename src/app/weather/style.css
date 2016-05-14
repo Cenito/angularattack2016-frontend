@@ -47,9 +47,13 @@
      }
      .temp {
          font-size: 14px;
+         margin-top: 0;
+         width: auto;
+         line-height: 1;
      }
      .wind {
          font-size: 10px;
+         line-height: 1;
      }
  }
  

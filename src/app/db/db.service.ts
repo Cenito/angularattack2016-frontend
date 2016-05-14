@@ -24,13 +24,11 @@ export class Database {
         
         this.beaches = new Observable<Array<Beach>>((observer) => {
             this.beachObserver = observer;
-        });
-        
-        this.socket = new Socketize.client(params);    
-        this.socket.on('login', (user) => {
+            
             var beaches = require('../../data/beaches/se-2014.json');        
             this.beachObserver.next(beaches);
-        });     
+        
+        });
         
     }
     
