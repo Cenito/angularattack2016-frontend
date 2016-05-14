@@ -25,7 +25,6 @@ export class InstaBeach  {
        if(this.beach && this.beach.BWName === 'SKABERSJÖVILLAN') {
            
             this.items = this.instaService.getLocationInfo(this.beach.Latitude_BW, this.beach.Longitude_BW).flatMap(data => {
-                console.log("Finished first data", data);
                 return this.instaService.getImages(data[0].id);
             });
         } 

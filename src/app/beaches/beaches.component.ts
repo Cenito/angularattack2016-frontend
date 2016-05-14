@@ -12,9 +12,7 @@ import { filter } from '../filter';
     selector: 'beaches',
     directives: [ Beach ],
     template: `
-    <div class="row" *ngFor="let beach of beaches"><beach [beach]="beach"></beach><br>
-    Name: {{ beach.BWName }}<br>
-    ({{ beach.Longitude_BW }}, {{ beach.Latitude_BW }} ) {{beach.distanceText}}</div>
+    <div class="row" *ngFor="let beach of beaches"><beach [beach]="beach"></beach></div>
     `
 })
 
