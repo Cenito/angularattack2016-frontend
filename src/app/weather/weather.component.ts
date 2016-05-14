@@ -13,18 +13,18 @@ import { WeatherService } from './weather.service';
         font-size: 32px;
         color: #726057;
     }`],
-    directives: [ NgClass ],
+    directives: [NgClass],
     template: require('./weather.component.html')
 })
 export class WeatherDetails implements OnInit {
-    
     @Input() location: Beach;
+
     cloudy: number;
     temperature: number;
     windSpeed: number;
-    
+
     constructor(private weatherService: WeatherService) {
-        
+
     }
 
     ngOnInit() {
@@ -32,32 +32,12 @@ export class WeatherDetails implements OnInit {
     }
 
     ngAfterContentInit() {
-        if (this.location.BWName === 'SKABERSJÖVILLAN') {
-            try {
-            this.weatherService.getLocationWeather(this.location.Latitude_BW, this.location.Longitude_BW)
-                .subscribe((weather) => {
+        this.weatherService.getLocationWeather(this.location.Latitude_BW, this.location.Longitude_BW)
+            .subscribe((weather) => {
 
-                    if (weather.timeseries.length) {
-                        var now = weather.timeseries[6];
-                        //total cloud count
-                        this.cloudy = now.tcc;
-                        this.temperature = now.t;
-                        this.windSpeed = now.ws;
-                    }
-                },
-                (error) => {
-                    this.cloudy = 0;
-                    this.temperature = 0;
-                    this.windSpeed = 0;
-                });
-            } catch (e) {
-                    this.cloudy = 0;
-                    this.temperature = 0;
-                    this.windSpeed = 0;
-                
-            }
-            
-        }
+                this.cloudy = weather.clouds.all;
+                this.temperature = weather.main.temp;
+                this.windSpeed = weather.wind.speed;
+            });
     }
-
 }
