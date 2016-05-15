@@ -18,6 +18,16 @@ export class Star {
     moduleId: module.id,
     selector: 'beach-voting',
      styles: [`
+     .icon-Full.vote-star {
+         font-size: 100%;
+     }
+     
+     .icon-Full.vote-star .votes {
+         font-size: 14px;
+     }
+     .icon-Full.vote-star .number-votes {
+         font-size: 10px;
+     }
         .icon-starpulsup {
             animation-name: starpulsup;
             animation-duration: 2s;

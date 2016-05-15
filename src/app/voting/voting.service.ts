@@ -70,8 +70,8 @@ export class VotingService {
         for (var index = 0; index < beaches.length; index++) {
             var beach = beaches[index];
             
-            beach.numberOfVotes = 4;
-             beach.sumOfVotes = 6;
+            beach.numberOfVotes = Math.floor(Math.random() * 200);
+            beach.sumOfVotes = beach.numberOfVotes * Math.floor(Math.random() * 4 + 1);
         }
     }
     

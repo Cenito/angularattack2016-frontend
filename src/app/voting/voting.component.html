@@ -10,10 +10,10 @@
             </li>
         </ul>
         
-        <i class="icon-Full" *ngIf="!showDetails"
+        <i class="icon-Full vote-star" *ngIf="!showDetails"
         [ngClass]="{'icon-starpulsup': gotVote,
-        'icon-starpulsdown': !gotVote }">
-        <span class="votes">{{ formatedMean }} / {{ stars.length }}</span>
-        <span class="number-votes">{{ numberOfVotes }} </span>
+        'icon-starpulsdown': !gotVote }"><span class="votes">{{ formatedMean }}/{{ stars.length }}</span> 
+        (<span class="number-votes">{{ numberOfVotes }}</span>)
+        
         </i>
     </div>

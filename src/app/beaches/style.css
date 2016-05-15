@@ -19,7 +19,7 @@
     margin-bottom: 0;
 }
 
-.water-info li.nod(:first-child),
+.water-info li:not(:first-child),
 .map-info li {
     padding: 0 5px;
     border-right: 1px dotted #ddd;
