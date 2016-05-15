@@ -29,7 +29,7 @@ export class VotingService {
         
         this.voting = new Observable( observer => {
             this.votingBeaches = observer;
-            console.log('votingbeaches observer', observer);
+           
         }).share();
         
         var params = {
@@ -45,16 +45,11 @@ export class VotingService {
              
              this.socket.subscribe('beach_votes', (vote: Vote) => {
                 // This will be fired when anything is published to a_channel
-                console.log('got vote', vote);
-                
                 var beach = dbService.getBeach(vote.beachId);
                 if(beach) {
-                    console.log('got vote', this.votingBeaches);
                     beach.numberOfVotes += 1;
                     beach.sumOfVotes += vote.value;
                     if(this.votingBeaches) {
-                        console.log('sending vote', beach);
-                    
                         this.votingBeaches.next(vote);
                     }
                 }

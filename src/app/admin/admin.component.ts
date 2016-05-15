@@ -11,6 +11,6 @@ import { AdminService } from './admin.service';
 export class AdminView  {
     
     constructor(private adminService: AdminService) {
-        console.log("AdminServiceComponent running");
+        
      }
 }

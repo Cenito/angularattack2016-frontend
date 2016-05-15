@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
 export class AdminService {
 
     constructor() {
-        console.log("AdminService running");
+        
     }
 }

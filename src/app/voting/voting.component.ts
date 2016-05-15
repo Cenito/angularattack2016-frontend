@@ -23,10 +23,11 @@ export class Star {
      }
      
      .icon-Full.vote-star .votes {
-         font-size: 14px;
+         font-family: 'roboto' !important;
      }
      .icon-Full.vote-star .number-votes {
          font-size: 10px;
+         font-family: 'roboto' !important;
      }
         .icon-starpulsup {
             animation-name: starpulsup;
@@ -40,6 +41,7 @@ export class Star {
             -webkit-animation-name: starpulsdown;
             -webkit-animation-duration: 2s;
         }
+        
     `],
     template: require('./voting.component.html'),
 })
@@ -62,13 +64,10 @@ export class VotingComponent implements AfterContentInit {
     }
 
     ngAfterContentInit() {
-        console.log('subsribed vote', this.beach.BWName);
-        
         this.subscription = this.votingService.voting
             .subscribe(vote => {
             
             if(vote.beachId === this.beach.BWID) {
-                console.log("calculate", vote);
                 this.calculate();
                 this.gotVote = true;
                 setTimeout(() => {
