@@ -8,7 +8,6 @@ import { Beach } from '../beaches';
 @Component({
     moduleId: module.id,
     selector: 'insta-beach',
-    // templateUrl: 'insta.component.html'
     template: require('./insta.component.html')
 })
 export class InstaBeach  {
