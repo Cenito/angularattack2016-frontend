@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3040;
 
 var smhi = require('./smhi');
 
@@ -16,6 +16,14 @@ app.use(bodyParser.urlencoded({
 
 }));
 app.use(methodOverride('_method'));
+
+app.options('/smhi', function(req,res) {
+    var headers = {};
+    headers["Access-Control-Allow-Origin"] = "*";
+    headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
+    res.writeHead(200, headers);
+    res.end();
+});
 
 //creates a root route
 app.get('/smhi', smhi);
