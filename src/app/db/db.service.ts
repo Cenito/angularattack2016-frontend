@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';
 import { Beach } from '../beaches/beach';
+import { BeachDetails } from '../beaches/beach.component';
+
 
 declare var Socketize: any;
 
@@ -13,7 +15,7 @@ export class Database {
     beachObserver: Subscriber<Array<Beach>>;
      
     private beachesById: any = {};
-    
+   
     constructor() {
        
         
@@ -31,6 +33,15 @@ export class Database {
     
     getBeach(beachId: string) {
         return this.beachesById[beachId];
+    }
+    
+    private currentDetails: BeachDetails;
+    
+    toggleDetails(beachDetails) {
+        if(this.currentDetails) {
+            this.currentDetails.showDetails = false;
+        }
+        this.currentDetails = beachDetails;    
     }
     
 }

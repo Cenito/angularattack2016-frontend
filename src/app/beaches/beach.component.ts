@@ -4,6 +4,8 @@ import { InstaBeach } from '../insta';
 import { Beach } from './';
 import { WeatherDetails } from '../weather';
 import { VotingComponent } from '../voting';
+import { Database } from '../db';
+
 import { GoogleMapsService } from '../maps/google.maps.service';
 
 @Component({
@@ -16,9 +18,10 @@ export class BeachDetails {
 
     @Input() beach: Beach;
     location: Position;
-    private showDetails: boolean = false;
+    public showDetails: boolean = false;
 
-    constructor(private mapsService: GoogleMapsService) {
+    constructor(private mapsService: GoogleMapsService,
+    private db: Database) {
         mapsService.getCurrentLocation().then((position: Position) => {
             this.location = position;
         });
@@ -30,5 +33,6 @@ export class BeachDetails {
 
     toggleDetails() {
         this.showDetails = !this.showDetails;
+        this.db.toggleDetails(this);
     }
 }
