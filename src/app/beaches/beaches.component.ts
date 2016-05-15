@@ -67,9 +67,13 @@ export class Beaches {
                                 return;
                             }
                             beach.matrix[result.request.travelMode] = result.response;
+                        }).catch((innerError) => {
+                            console.log("Beaches calculateDistance (innerError): " + innerError)
                         });
                 });
             });
+        }).catch((error) => {
+            console.log("Beaches calculateDistance (error): " + error)
         });
     }
 }
