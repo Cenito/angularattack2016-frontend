@@ -6,7 +6,7 @@ module.exports = function(req, res) {
 
     latitude = req.query['lat'] || latitude;
     longitude = req.query['lng'] || longitude;
-
+    console.log('Got', latitude, longitude);
     SMHI.getForecastForLatAndLong(latitude, longitude).then(
         function(response) {
             var forecasts = response.getForecasts();
