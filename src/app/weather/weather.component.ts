@@ -46,7 +46,9 @@ export class WeatherDetails implements AfterContentInit {
             this.weatherService.getLocationWeather(this.location.Latitude_BW, this.location.Longitude_BW)
                 .subscribe((weather) => {
                     if (weather.timeseries.length) {
-                        var converted = map(weather.timeseries, (item) => { return { cloudy: item.tcc, temperature: item.t, windSpeed: item.ws, time: item.validTime.substring(11,16) }; });
+                        var converted = map(weather.timeseries, (item:any) => {
+                            return { cloudy: item.tcc, temperature: item.t, windSpeed: item.ws, time: item.validTime.substring(11, 16) };
+                        });
                         context.weatherData.push(...converted);
                         var now = weather.timeseries[6];
                         //total cloud count
