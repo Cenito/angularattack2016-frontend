@@ -67,7 +67,7 @@ export class GoogleMapsService {
             this.currentBucket[request.travelMode] = [];
             window.setTimeout(() => {
                 callback(handleBucket);
-            }, this.waitCounter * 3000);
+            }, this.waitCounter * 800);
             ++this.waitCounter;
         }
         else {
