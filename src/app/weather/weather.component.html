@@ -1,9 +1,18 @@
-<div class="weather">
-       <i class="icon" 
-           [ngClass]="{
+<div class="weather" *ngIf="!small">
+  <i class="icon" [ngClass]="{
              'icon-Sunny': cloudy<5,
              'icon-CloudAndSun': cloudy>=5 && cloudy<50,
              'icon-Cloudy': cloudy>=50 }"></i>
-        <span class="temp">{{ temperature }}°C<br>
-        <span class="wind">{{ windSpeed }}m/s</span></span>
+  <span class="temp">{{ temperature }}°C</span><br>
+  <span class="wind">{{ windSpeed }}m/s</span>
+</div>
+<div class="weather small" *ngIf="small">
+  <div style="display: inline-block" *ngFor="let item of getSliceData()">
+    <i class="icon" [ngClass]="{
+             'icon-Sunny': item.cloudy<5,
+             'icon-CloudAndSun': item.cloudy>=5 && cloudy<50,
+             'icon-Cloudy': item.cloudy>=50 }"></i>
+    <span class="temp">{{ item.temperature }}°C</span><br>
+    <span class="time">{{ item.time }}</span>
+  </div>
 </div>

@@ -38,7 +38,7 @@ export class Database {
     private currentDetails: BeachDetails;
     
     toggleDetails(beachDetails) {
-        if(this.currentDetails) {
+        if(this.currentDetails && this.currentDetails !== beachDetails) {
             this.currentDetails.showDetails = false;
         }
         this.currentDetails = beachDetails;    

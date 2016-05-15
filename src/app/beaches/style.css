@@ -12,6 +12,14 @@
     margin-bottom: 0;
 }
 
+.beach-details-container > div.row {
+    margin-top: 14px;
+}
+
+.beach-detail-header {
+    text-transform: capitalize;
+}
+
 .water-info, .map-info {
     opacity: 0.5;
     margin-bottom: 0;
@@ -97,7 +105,7 @@ h2 {
 .direction-link-content {
     margin-top: 10px;
     display: inline-block;
-    color: rgb(128,128,128);
+    color: rgb(128, 128, 128);
 }
 
 .direction-link > span > img {

@@ -2,16 +2,26 @@
      float: right;
  }
  
+ .weather.small {
+     float: inherit;
+     text-align: center;
+ }
+ 
  .weather .icon {
-     display: inline-block;
-     margin-top: -20px;
      float: left;
+     margin-top: -20px;
      font-size: 128px;
      font-weight: bold;
      color: rgb(128, 128, 128);
      padding-right: 10px;
-     
-
+ }
+ 
+ .weather.small .icon {
+    float: inherit;
+    font-size: 32px;
+    margin-right: 0;
+    padding-right: 0;
+    margin-left: 20px;
  }
  
  .temp {
@@ -26,6 +36,11 @@
      font-weight: 900;
      min-width: 120px;
      font-size: 18px;
+ }
+ 
+ .time {
+     font-weight: 900;
+     font-size: 14px;
  }
 
  

@@ -28,15 +28,17 @@
         </div>
 
         <div class="col-xs-12">
-        <ul class="list-inline water-info">
-            <li class="list-inline-item">Water quality: Excellent</li>
-            <li class="list-inline-item"><i class="icon icon-BathTemp"></i> {{ beach.waterTemperature }}&#8451;</li>
-            <li class="list-inline-item">  <beach-voting [beach]="beach"></beach-voting></li>
-        </ul>
+            <ul class="list-inline water-info">
+                <li class="list-inline-item">Water quality: Excellent</li>
+                <li class="list-inline-item"><i class="icon icon-BathTemp"></i> {{ beach.waterTemperature }}&#8451;</li>
+                <li class="list-inline-item">
+                    <beach-voting [beach]="beach"></beach-voting>
+                </li>
+            </ul>
         </div>
     </div>
 
-    <div *ngIf="showDetails">
+    <div *ngIf="showDetails" class="beach-details-container">
         <p>See whats going on at <span class="beach-name">{{ beach.BWName }}</span>.</p>
         <div class="row">
             <div class="col-xs-12">
@@ -61,5 +63,12 @@
                 </a>
             </div>
         </div>
+        <div class="row">
+            <p class="col-xs-12">Upcoming weather at <span class="beach-detail-header">{{ beach.BWName }}</span></p>
+            <div class="col-xs-12">
+                <weather-details [location]="beach" [small]="true"></weather-details>
+            </div>
+        </div>
+        <div style="display: block;clear:both;margin-bottom: 25px;"></div>
     </div>
 </div>
