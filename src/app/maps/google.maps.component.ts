@@ -39,6 +39,8 @@ export class GoogleMapsComponent {
     mapsService.getCurrentLocation().then((pos: Position) => {
       this.lat = this.curr_lat = pos.coords.latitude;   
       this.lng = this.curr_lng = pos.coords.longitude;
+    }).catch((error) => {
+      console.log("GoogleMapsComponent ctor => (getCurrentLocation) ", error);
     });   
   }
   

@@ -102,6 +102,8 @@ export class GoogleMapsService {
                         request.resolve({ response: response.rows[0].elements[index], status: status, request: request });
                     })
                 });
+        }).catch((error) => {
+            console.log("GoogleMapsService handleGroup (error): ", error);
         });
     }
 
