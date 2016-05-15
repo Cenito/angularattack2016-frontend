@@ -1,7 +1,22 @@
 <div class="glyph">
-    <h5>Vote</h5>
+    <h5 (click)="toggleDetails()">Vote</h5>
     <div class="">
-        <i class="icon" class="icon-star"></i>
-        <span class="votes">{{ meanVote }}</span>
+        <i class="icon-Full"></i>
+        <span class="votes">{{ meanVotes }} / {{ stars.length }}</span>
+        <span class="number-votes">{{ numberOfVotes }} </span>
+
+        <div class="row" *ngIf="showDetails">
+            <div class="column" *ngFor="let star of stars">
+                <div (click)="vote(star)">
+                    <!--<i class="icon-Outline" ng-hide="star.isSelected"></i>-->
+                    <i [ngClass]="{
+                            'icon-Outline': star.isSelected != true,
+                            'icon-Full': star.isSelected == true}">
+                    </i>
+                    <!--<i class="icon-Outline" ng-hide="star.isSelected"></i>
+                    <i class="icon-Full" ng-if="star.isSelected"></i>-->
+                </div>
+            </div>
+        </div>
     </div>
 </div>

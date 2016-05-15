@@ -23,7 +23,8 @@ export class App implements OnInit {
   constructor(
     public database: Database, 
     public instaService: InstaServiceMock,
-    public weatherService: WeatherService) { }
+    public weatherService: WeatherService,
+    public votingService: VotingService) { }
   
   ngOnInit() { }
   

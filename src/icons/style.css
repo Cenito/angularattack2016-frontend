@@ -41,13 +41,23 @@
 .icon-Rainy:before {
     content: "\e906";
 }
-.icon-Sunny:before {
+.icon-Full:before {
     content: "\e907";
 }
-.icon-Thunder:before {
+.icon-Half:before {
     content: "\e908";
 }
-.icon-Walk:before {
+.icon-Outline:before {
     content: "\e909";
 }
+.icon-Sunny:before {
+    content: "\e90a";
+}
+.icon-Thunder:before {
+    content: "\e90b";
+}
+.icon-Walk:before {
+    content: "\e90c";
+}
+
 

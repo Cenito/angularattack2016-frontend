@@ -24,7 +24,8 @@ export class Database {
         
         this.beaches = new Observable<Array<Beach>>((observer) => {
             this.beachObserver = observer;
-            var beaches = require('../../data/beaches/se-2014 - small.json');        
+            var beaches = require('../../data/beaches/se-2014 - small.json');
+            this.beachObserver.next(beaches);        
         });
         
     }

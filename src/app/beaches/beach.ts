@@ -17,6 +17,6 @@ export interface Beach {
     rawDistance?: number;
     
     waterTemperature?: number;
-    NumberOfVotes?: number;
-    SumOfVotes?: number;
+    numberOfVotes?: number;
+    sumOfVotes?: number;
 }
