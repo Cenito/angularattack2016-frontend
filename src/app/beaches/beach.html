@@ -47,7 +47,16 @@
             <div class="col-xs-12">
                 <a class="btn btn-default direction-link" href="https://www.google.se/maps/dir/{{location.coords.latitude}},{{location.coords.longitude}}/{{beach.Latitude_BW}},{{beach.Longitude_BW}}">
                     <span><img src="https://upload.wikimedia.org/wikipedia/en/1/19/Google_Maps_Icon.png" /></span>
-                    <span class="direction-link-content">Get directions</span>
+                    <span class="direction-link-content">Get directions on Google Maps</span>
+                    <span class="arrow-right"></span>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="btn btn-default direction-link" href="https://www.waze.com/sv/livemap?zoom=15&lat={{location.coords.latitude}}&lon={{location.coords.longitude}}&from_lat={{location.coords.latitude}}&from_lon={{location.coords.longitude}}&to_lat={{beach.Latitude_BW}}&to_lon={{beach.Longitude_BW}}&at_req=0&at_text=Now">
+                    <span><img src="https://assets.brandfolder.com/ezvnd8rv/view.png" /></span>
+                    <span class="direction-link-content">Get directions on Waze</span>
                     <span class="arrow-right"></span>
                 </a>
             </div>
