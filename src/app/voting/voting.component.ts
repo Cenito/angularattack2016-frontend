@@ -5,16 +5,10 @@ import { Observable } from 'rxjs/Observable';
 import { Beach } from '../beaches';
 import { VotingService } from './voting.service';
 
-@Component({
-    selector: 'star',
-    template: require('./voting.component.html'),
-    inputs: ['isSelected']
-})
-
 export class Star {
     public isSelected: boolean;
     
-    constructor(rankValue: number) {
+    constructor(public rankValue: number) {
             
     }
 }
@@ -28,7 +22,6 @@ export class Star {
 
     }`],
     template: require('./voting.component.html'),
-    directives: [Star]
 })
 
 export class VotingComponent implements AfterContentInit {
@@ -39,7 +32,8 @@ export class VotingComponent implements AfterContentInit {
     private meanVotes: number;
     private stars: Array<Star>;
     private showDetails: boolean = false;
-
+    private formatedMean: string;
+    
     constructor(private votingService: VotingService) {
         
         this.stars = [new Star(1),new Star(2),new Star(3),new Star(4),new Star(5)];
@@ -52,20 +46,34 @@ export class VotingComponent implements AfterContentInit {
         this.numberOfVotes = this.beach.numberOfVotes;
         this.sumOfVotes = this.beach.sumOfVotes;
 
+        this.calculate();
+        
+    }
+
+    calculate(value?)  {
+        if (value) {
+            this.numberOfVotes += 1;
+            this.sumOfVotes += value;
+        }
         if (this.numberOfVotes > 0) {
             this.meanVotes = this.sumOfVotes / this.numberOfVotes;
+            this.formatedMean = this.meanVotes.toFixed(1);
         } else {
             this.meanVotes = 0;
         }
-    }
-    
-    toggleDetails() {
-        this.showDetails = !this.showDetails;    
+    }   
+
+    toggleDetails(event) {
+        this.showDetails = !this.showDetails;
+        event.preventDefault();    
     }
     
     vote(selectedStar: Star) {
         
-        this.showDetails = false;
+        setTimeout(function() {
+            this.showDetails = false;
+       
+        }, 0);
         
         var selected = false;
         for (var index = this.stars.length-1; index >= 0 ; index--) {
@@ -76,5 +84,6 @@ export class VotingComponent implements AfterContentInit {
             }
             star.isSelected = selected;
         }
+        this.calculate(selectedStar.rankValue);
     }
 }

@@ -1,4 +1,4 @@
-<div class="col-xs-12 beach" (click)="toggleDetails()">
+<div class="col-xs-12 beach">
     <div class="row">
         <div class="col-xs-12">
             <ul class="list-inline map-info">
@@ -20,10 +20,10 @@
             </ul>
         </div>
 
-        <div class="col-xs-7 col-sx-9">
+        <div class="col-xs-7 col-sx-9" (click)="toggleDetails()">
             <h2>{{ beach.BWName }}</h2>
         </div>
-        <div class="col-xs-5 col-sx-3">
+        <div class="col-xs-5 col-sx-3" (click)="toggleDetails()">
             <weather-details [location]="beach"></weather-details>
         </div>
         
