@@ -7,7 +7,6 @@ import { Beach } from '../beaches/beach';
 export class VotingService {
 
     constructor(private dbService: Database) {
-        console.log("VotingService");
         
         var beachRequest = dbService.beaches;
         beachRequest.subscribe((beaches) => {

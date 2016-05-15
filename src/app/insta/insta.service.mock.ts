@@ -5,7 +5,6 @@ import { Observable } from 'rxjs/Observable';
 export class InstaServiceMock {
 
     constructor() {
-        console.log("InstaServiceMock");
     }
 
     getLocationInfo(lat: number, lng: number) {
