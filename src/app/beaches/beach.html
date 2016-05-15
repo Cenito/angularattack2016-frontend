@@ -21,12 +21,12 @@
         </div>
 
         <div class="col-xs-7 col-sx-9" (click)="toggleDetails()">
-            <h2>{{ beach.BWName }}</h2>
+            <h2 style="cursor:pointer">{{ beach.BWName }}</h2>
         </div>
         <div class="col-xs-5 col-sx-3" (click)="toggleDetails()">
             <weather-details [location]="beach"></weather-details>
         </div>
-        
+
         <div class="col-xs-12">
         <ul class="list-inline water-info">
             <li class="list-inline-item">Water quality: Excellent</li>
@@ -36,10 +36,21 @@
         </div>
     </div>
 
-    <div class="row" *ngIf="showDetails">
-        <div class="col-xs-12">
-            <p>See whats going on at <span class="beach-name">{{ beach.BWName }}</span>.</p>
-            <insta-beach [beach]="beach"></insta-beach>
+    <div *ngIf="showDetails">
+        <p>See whats going on at <span class="beach-name">{{ beach.BWName }}</span>.</p>
+        <div class="row">
+            <div class="col-xs-12">
+                <insta-beach [beach]="beach"></insta-beach>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <a class="btn btn-default direction-link" href="https://www.google.se/maps/dir/{{location.coords.latitude}},{{location.coords.longitude}}/{{beach.Latitude_BW}},{{beach.Longitude_BW}}">
+                    <span><img src="https://upload.wikimedia.org/wikipedia/en/1/19/Google_Maps_Icon.png" /></span>
+                    <span class="direction-link-content">Get directions</span>
+                    <span class="arrow-right"></span>
+                </a>
+            </div>
         </div>
     </div>
 </div>
