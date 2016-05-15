@@ -68,12 +68,12 @@ export class Beaches {
                             }
                             beach.matrix[result.request.travelMode] = result.response;
                         }).catch((innerError) => {
-                            console.log("Beaches calculateDistance (innerError): " + innerError)
+                            console.log("Beaches calculateDistance (innerError): ",innerError);
                         });
                 });
             });
         }).catch((error) => {
-            console.log("Beaches calculateDistance (error): " + error)
+            console.log("Beaches calculateDistance (error): ", error);
         });
     }
 }

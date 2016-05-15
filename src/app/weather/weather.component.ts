@@ -29,15 +29,19 @@ export class WeatherDetails implements AfterContentInit {
         this.windSpeed = 3;
         this.location.waterTemperature = 26;
 
-        this.weatherService.getLocationWeather(this.location.Latitude_BW, this.location.Longitude_BW)
-            .subscribe((weather) => {
-                if (weather.timeseries.length) {
-                    var now = weather.timeseries[6];
-                    //total cloud count
-                    this.cloudy = now.tcc;
-                    this.temperature = now.t;
-                    this.windSpeed = now.ws;
-                }
-            });
+        try {
+            this.weatherService.getLocationWeather(this.location.Latitude_BW, this.location.Longitude_BW)
+                .subscribe((weather) => {
+                    if (weather.timeseries.length) {
+                        var now = weather.timeseries[6];
+                        //total cloud count
+                        this.cloudy = now.tcc;
+                        this.temperature = now.t;
+                        this.windSpeed = now.ws;
+                    }
+                });
+        } catch (e) {
+            console.log('stupid stupid!!', e);
+        }
     }
 }

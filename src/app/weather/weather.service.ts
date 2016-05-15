@@ -10,16 +10,17 @@ export class WeatherService {
     }
 
     getLocationWeather(lat: number, lng: number) {
+
+        var url = 'https://angularattack2016.ceni.to/smhi';
         
-        var url = `http://opendata-download-metfcst.smhi.se/api/category/pmp1.5g/version/1/geopoint/lat/${lat}/lon/${lng}/data.json`;
         var search = new URLSearchParams();
         search.set('lat', '' + lat);
-        search.set('lon', '' + lng);
+        search.set('lng', '' + lng);
         search.set("units", "metric");
         search.set('APPID', this.apiKey);
 
         return this.http
-              .get(url)
+              .get(url, { search })
               .map((response) => response.json());
     }
 }
