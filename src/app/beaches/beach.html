@@ -1,47 +1,45 @@
-<div class="col-xs-12 beach"
-(click)="toggleDetails()">
+<div class="col-xs-12 beach" (click)="toggleDetails()">
     <div class="row">
         <div class="col-xs-12">
             <ul class="list-inline map-info">
                 <li class="list-inline-item">
                     <i class="icon icon-Walk"></i>
-                    <span  *ngIf="beach.matrix.WALKING.distance"
-                    [innerHTML]="beach.matrix.WALKING.duration.text"></span>
+                    <span *ngIf="beach.matrix.WALKING.distance" [innerHTML]="beach.matrix.WALKING.duration.text"></span>
                 </li>
                 <li class="list-inline-item">
                     <i class="icon icon-Bike"></i>
-                    <span *ngIf="beach.matrix.BICYCLING.distance"
-                     [innerHTML]="beach.matrix.BICYCLING.duration.text"></span>
+                    <span *ngIf="beach.matrix.BICYCLING.distance" [innerHTML]="beach.matrix.BICYCLING.duration.text"></span>
                 </li>
                 <li class="list-inline-item">
                     <i class="icon icon-Bus"></i>
-                    <span *ngIf="beach.matrix.TRANSIT.distance"
-                     [innerHTML]="beach.matrix.TRANSIT.duration.text"></span>
+                    <span *ngIf="beach.matrix.TRANSIT.distance" [innerHTML]="beach.matrix.TRANSIT.duration.text"></span>
                 </li>
                 <li class="list-inline-item">
                     <i class="icon icon-Drive"></i>
                     <span *ngIf="beach.matrix.DRIVING.distance" [innerHTML]="beach.matrix.DRIVING.duration.text"></span></li>
             </ul>
         </div>
+
         <div class="col-xs-7 col-sx-9">
             <h2>{{ beach.BWName }}</h2>
         </div>
         <div class="col-xs-5 col-sx-3">
             <weather-details [location]="beach"></weather-details>
         </div>
-        <div class="col-xs-5 col-sx-3">
-            <beach-voting [beach]="beach"></beach-voting>
-        </div>
-
+        
+        <div class="col-xs-12">
         <ul class="list-inline water-info">
             <li class="list-inline-item">Water quality: Excellent</li>
-            <li class="list-inline-item"><i class="icon icon-BathTemp"></i>  {{ beach.waterTemperature }}&#8451;</li>
+            <li class="list-inline-item"><i class="icon icon-BathTemp"></i> {{ beach.waterTemperature }}&#8451;</li>
+            <li class="list-inline-item">  <beach-voting [beach]="beach"></beach-voting></li>
         </ul>
+        </div>
     </div>
-    
+
     <div class="row" *ngIf="showDetails">
-       <div class="col-xs-12">
-         <insta-beach [beach]="beach"></insta-beach>
-       </div>
+        <div class="col-xs-12">
+            <p>See whats going on at <span class="beach-name">{{ beach.BWName }}</span>.</p>
+            <insta-beach [beach]="beach"></insta-beach>
+        </div>
     </div>
 </div>

@@ -23,6 +23,10 @@ export class Star {
 @Component({
     moduleId: module.id,
     selector: 'beach-voting',
+     styles: [`
+    .voting {
+
+    }`],
     template: require('./voting.component.html'),
     directives: [Star]
 })

@@ -9,15 +9,20 @@
     border-radius: 7px;
 }
 
+.beach p {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
 .water-info,
 .map-info {
     opacity: 0.5;    
+    margin-bottom: 0;
 }
 
-.water-info li,
+.water-info li.nod(:first-child),
 .map-info li {
     padding: 0 5px;
-    border-right: 1px dotted #726057;
+    border-right: 1px dotted #ddd;
     margin-right: 0;
 }
 
@@ -32,10 +37,6 @@
 }
 
 .water-info {
-    position: absolute;
-    left: 5px;
-    bottom:0;
-    margin-bottom: 0;
 }
 
 .water-info .icon-BathTemp {
@@ -55,7 +56,16 @@ h2 {
     font-size: 48px;
     text-transform: capitalize;
     white-space: nowrap;
-    
+    margin-top: 10px;
+}
+
+.beach-name {
+    text-transform: capitalize;
+}
+
+.insta-item img {
+    width: 60px;
+    height:60px;
 }
 
 @media (max-width:799px) {
@@ -63,7 +73,12 @@ h2 {
     h2 {
         font-size: 24px;    
     }
+    .water-info,
     .map-info {
-        font-size: 80%;
+        font-size: 70%;
+    }
+    .water-info .icon,
+    .map-info .icon {
+        font-size: 16px;
     }
 }

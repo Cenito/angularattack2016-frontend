@@ -26,6 +26,7 @@
  .wind {
      font-weight: 900;
      min-width: 120px;
+     font-size: 18px;
  }
 
  
@@ -42,9 +43,14 @@
      }
  }
  @media (max-width:735px) {
- 
+    .weather {
+            margin-right: 0;
+        }
+        
      .weather .icon {
-         font-size: 64px;
+         font-size: 50px;
+         padding-right: 2px;
+         margin-top: -10px;
      }
      
      .temp {
@@ -63,6 +69,7 @@
  
  @media (max-width:374px) {
  
+    
      .weather .icon {
          font-size: 48px;
      }

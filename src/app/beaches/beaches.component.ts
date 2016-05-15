@@ -69,6 +69,8 @@ export class Beaches {
                                 return;
                             }
                             beach.matrix[result.request.travelMode] = result.response;
+                            //var durationText =  beach.matrix[result.request.travelMode].duration.text.replace(' hours', 'h');
+                            //beach.matrix[result.request.travelMode].duration.text = durationText;
                         }).catch((innerError) => {
                             console.log("Beaches calculateDistance (innerError): ",innerError);
                         });
