@@ -117,7 +117,6 @@ export class VotingComponent implements AfterContentInit {
             }
             star.isSelected = selected;
         }
-        this.calculate(selectedStar.rankValue);
         this.votingService.sendVote({ beachId: this.beach.BWID, value: selectedStar.rankValue});
     }
 }
