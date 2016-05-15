@@ -1,8 +1,6 @@
-
 .beach {
     position: relative;
     padding: 2px 10px;
-   
     background-color: white;
     margin-bottom: 15px;
     border: 1px solid transparent;
@@ -13,9 +11,9 @@
     margin-top: 10px;
     margin-bottom: 0;
 }
-.water-info,
-.map-info {
-    opacity: 0.5;    
+
+.water-info, .map-info {
+    opacity: 0.5;
     margin-bottom: 0;
 }
 
@@ -26,33 +24,29 @@
     margin-right: 0;
 }
 
-.water-info li:last-child,
-.map-info li:last-child {
+.water-info li:last-child, .map-info li:last-child {
     border: 0;
 }
 
-.water-info .icon,
-.map-info .icon {
+.water-info .icon, .map-info .icon {
     font-size: 24px;
-}
-
-.water-info {
 }
 
 .water-info .icon-BathTemp {
     padding-left: 10px;
 }
+
+
 /* icons are to high up, probably because the icon-Walk is talk */
-.icon-Bus,
-.icon-Drive,
-.icon-Bike {
+
+.icon-Bus, .icon-Drive, .icon-Bike {
     display: inline-block;
     margin-top: 5px;
 }
 
 h2 {
     clear: left;
-    color: rgb(41,171,225);	
+    color: rgb(41, 171, 225);
     font-size: 48px;
     text-transform: capitalize;
     white-space: nowrap;
@@ -65,20 +59,60 @@ h2 {
 
 .insta-item img {
     width: 60px;
-    height:60px;
+    height: 60px;
+}
+
+.arrow-right {
+    margin-top: 7px;
+    width: 0;
+    height: 0;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-left: 14px solid rgb(128, 128, 128);
+}
+
+.direction-link {
+    width: 100%;
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 4px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.direction-link:hover {
+    background-color: #ddd;
+    border-color: #ccc;
+    transition: background-color 0.8s, border-color 0.8s;
+}
+
+.direction-link > span:first-child {
+    float: left;
+}
+
+.direction-link > span:last-child {
+    float: right;
+}
+
+.direction-link-content {
+    margin-top: 10px;
+    display: inline-block;
+    color: rgb(128,128,128);
+}
+
+.direction-link > span > img {
+    height: 42px;
+    width: 42px;
 }
 
 @media (max-width:799px) {
-    
     h2 {
-        font-size: 24px;    
+        font-size: 24px;
     }
-    .water-info,
-    .map-info {
+    .water-info, .map-info {
         font-size: 70%;
     }
-    .water-info .icon,
-    .map-info .icon {
+    .water-info .icon, .map-info .icon {
         font-size: 16px;
     }
 }

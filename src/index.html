@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
 
-  <title><%= webpackConfig.metadata.title %></title>
+  <title>
+    <%= webpackConfig.metadata.title %>
+  </title>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +22,7 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/apple-icon-144x144.png">
   <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/apple-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon/android-icon-192x192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
@@ -27,8 +30,9 @@
   <meta name="msapplication-TileColor" content="#00bcd4">
   <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
   <meta name="theme-color" content="#00bcd4">
+  <link rel="stylesheet" type="text/css" href="./assets/css/sunny.css">
   <!-- end favicon -->
-  
+
   <!-- base url -->
   <base href="<%= webpackConfig.metadata.baseUrl %>">
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMehB9VuDd7pBfTB0gzoZ_pBBc4ysMCZo"></script>
@@ -37,18 +41,41 @@
 </head>
 
 <body>
-
   <app>
-    Loading...
+    <header>
+      <img src="../assets/img/badass-header.jpg">
+    </header>
+    <div class="container">
+      <router-outlet>
+        <div class='uil-sunny-css' style='transform:scale(0.6);'>
+          <div class="uil-sunny-circle"></div>
+          <div class="uil-sunny-light">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </router-outlet>
+    </div>
   </app>
 
 
   <% if (webpackConfig.metadata.ENV === 'development') { %>
-  <!-- Webpack Dev Server reload -->
-  <script src="/webpack-dev-server.js"></script>
-  <% } %>
-  
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Webpack Dev Server reload -->
+    <script src="/webpack-dev-server.js"></script>
+    <% } %>
+
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </body>
+
 </html>
