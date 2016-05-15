@@ -12,7 +12,8 @@ export class WeatherService {
     getLocationWeather(lat: number, lng: number) {
 
         var url = 'https://angularattack2016.ceni.to/smhi';
-        //var url = `http://opendata-download-metfcst.smhi.se/api/category/pmp1.5g/version/1/geopoint/lat/${lat}/lon/${lng}/data.json`;
+         //url = 'http://localhost:3040/smhi';
+        //url = `http://opendata-download-metfcst.smhi.se/api/category/pmp1.5g/version/1/geopoint/lat/${lat}/lon/${lng}/data.json`;
         
         var search = new URLSearchParams();
         search.set('lat', '' + lat);
@@ -26,6 +27,6 @@ export class WeatherService {
         
         return this.http
               .get(url, { search })
-              .map((response) => response.json());
+              .map((response) => response.json().body);
     }
 }

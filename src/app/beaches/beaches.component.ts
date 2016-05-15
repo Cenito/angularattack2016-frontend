@@ -45,14 +45,16 @@ export class Beaches {
             this.beaches.push(...filtered);
             
             var travelModes = this.mapsService.travelModes;
-            map(travelModes, (type) => {
-                map(filtered, (beach, index) => {
-                    beach.matrix = {
-                        WALKING: {},
-                        BICYCLING: {},
-                        TRANSIT: {},
-                        DRIVING: {}
-                    };
+            map(filtered, (beach, index) => {
+                beach.matrix = {
+                    WALKING: {},
+                    BICYCLING: {},
+                    TRANSIT: {},
+                    DRIVING: {}
+                };
+                
+                map(travelModes, (type) => {
+                
                     var options: DistanceRequest = {
                         latitude: beach.Latitude_BW,
                         longitude: beach.Longitude_BW,

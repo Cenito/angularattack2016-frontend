@@ -3,21 +3,24 @@
     <div class="row">
         <div class="col-xs-12">
             <ul class="list-inline map-info">
-                <li class="list-inline-item" *ngIf="beach.matrix.WALKING.distance">
+                <li class="list-inline-item">
                     <i class="icon icon-Walk"></i>
-                    <span [innerHTML]="beach.matrix.WALKING.duration.text"></span>
+                    <span  *ngIf="beach.matrix.WALKING.distance"
+                    [innerHTML]="beach.matrix.WALKING.duration.text"></span>
                 </li>
-                <li class="list-inline-item" *ngIf="beach.matrix.BICYCLING.distance">
+                <li class="list-inline-item">
                     <i class="icon icon-Bike"></i>
-                    <span [innerHTML]="beach.matrix.BICYCLING.duration.text"></span>
+                    <span *ngIf="beach.matrix.BICYCLING.distance"
+                     [innerHTML]="beach.matrix.BICYCLING.duration.text"></span>
                 </li>
-                <li class="list-inline-item" *ngIf="beach.matrix.TRANSIT.distance">
+                <li class="list-inline-item">
                     <i class="icon icon-Bus"></i>
-                    <span [innerHTML]="beach.matrix.TRANSIT.duration.text"></span>
+                    <span *ngIf="beach.matrix.TRANSIT.distance"
+                     [innerHTML]="beach.matrix.TRANSIT.duration.text"></span>
                 </li>
-                <li class="list-inline-item" *ngIf="beach.matrix.DRIVING.distance">
+                <li class="list-inline-item">
                     <i class="icon icon-Drive"></i>
-                    <span [innerHTML]="beach.matrix.DRIVING.duration.text"></span></li>
+                    <span *ngIf="beach.matrix.DRIVING.distance" [innerHTML]="beach.matrix.DRIVING.duration.text"></span></li>
             </ul>
         </div>
         <div class="col-xs-7 col-sx-9">

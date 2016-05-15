@@ -47,9 +47,7 @@ export class VotingComponent implements AfterContentInit {
     ngAfterContentInit() {
         this.numberOfVotes = this.beach.numberOfVotes;
         this.sumOfVotes = this.beach.sumOfVotes;
-        console.log(this.beach);
-        console.log("numberOfVotes: " + this.numberOfVotes + " sumOfVotes: " + this.sumOfVotes + " beach: " + this.beach);
-        
+
         if (this.numberOfVotes > 0) {
             this.meanVotes = this.sumOfVotes / this.numberOfVotes;
         } else {
