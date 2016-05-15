@@ -12,22 +12,25 @@ export class Database {
     beaches: Observable<Array<Beach>>;
     beachObserver: Subscriber<Array<Beach>>;
      
+    private beachesById: any = {};
+    
     constructor() {
-        var params = {
-            public_key: 'gNXXON_o4AC76ZUX4LPQDdj',
-            auth_params: {
-                username: 'cenitoon',
-                payload: 'b0759015ddb72beb5020487a29436519e6153d4d4a7945c2902598efdf743260'
-            }
-        }
-        
+       
         
         this.beaches = new Observable<Array<Beach>>((observer) => {
             this.beachObserver = observer;
-            var beaches = require('../../data/beaches/se-2014.json');
+            var beaches: Array<Beach> = require('../../data/beaches/se-2014.json');
+            beaches.map((beach) => {
+                this.beachesById[beach.BWID] = beach;
+            })
+            
             this.beachObserver.next(beaches);        
         });
         
+    }
+    
+    getBeach(beachId: string) {
+        return this.beachesById[beachId];
     }
     
 }

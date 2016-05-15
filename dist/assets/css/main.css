@@ -16,3 +16,24 @@ body {
 header img {
     width: 100%;
 }
+
+@-webkit-keyframes starpulsup {
+    from { font-size: 100%; }
+    to { font-size: 150%; }
+}
+
+@keyframes starpulsup {
+    from { font-size: 100%; }
+    to { font-size: 150%; }
+}
+
+
+@-webkit-keyframes starpulsdown {
+    from { font-size: 150%; }
+    to { font-size: 100%; }
+}
+
+@keyframes starpulsdown {
+    from { font-size: 150%; }
+    to { font-size: 100%; }
+}

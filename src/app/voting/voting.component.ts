@@ -3,7 +3,7 @@ import { NgClass } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 
 import { Beach } from '../beaches';
-import { VotingService } from './voting.service';
+import { Vote, VotingService } from './voting.service';
 
 export class Star {
     public isSelected: boolean;
@@ -18,9 +18,19 @@ export class Star {
     moduleId: module.id,
     selector: 'beach-voting',
      styles: [`
-    .voting {
-
-    }`],
+        .icon-starpulsup {
+            animation-name: starpulsup;
+            animation-duration: 2s;
+            -webkit-animation-name: starpulsup;
+            -webkit-animation-duration: 2s;
+        }
+        .icon-starpulsdown {
+            animation-name: starpulsdown;
+            animation-duration: 2s;
+            -webkit-animation-name: starpulsdown;
+            -webkit-animation-duration: 2s;
+        }
+    `],
     template: require('./voting.component.html'),
 })
 
@@ -33,28 +43,42 @@ export class VotingComponent implements AfterContentInit {
     private stars: Array<Star>;
     private showDetails: boolean = false;
     private formatedMean: string;
+    private gotVote: boolean = false;
+    private subscription: any;
     
     constructor(private votingService: VotingService) {
         
         this.stars = [new Star(1),new Star(2),new Star(3),new Star(4),new Star(5)];
     }
 
-    ngOnInit() {
-    }
-
     ngAfterContentInit() {
-        this.numberOfVotes = this.beach.numberOfVotes;
-        this.sumOfVotes = this.beach.sumOfVotes;
-
+        console.log('subsribed vote', this.beach.BWName);
+        
+        this.subscription = this.votingService.voting
+            .subscribe(vote => {
+            
+            if(vote.beachId === this.beach.BWID) {
+                console.log("calculate", vote);
+                this.calculate();
+                this.gotVote = true;
+                setTimeout(() => {
+                    this.gotVote = false;
+                }, 2000);
+            }
+        });        
+        
         this.calculate();
         
     }
 
     calculate(value?)  {
         if (value) {
-            this.numberOfVotes += 1;
-            this.sumOfVotes += value;
+            this.beach.numberOfVotes += 1;
+            this.beach.sumOfVotes += value;
         }
+        this.numberOfVotes = this.beach.numberOfVotes;
+        this.sumOfVotes = this.beach.sumOfVotes;
+
         if (this.numberOfVotes > 0) {
             this.meanVotes = this.sumOfVotes / this.numberOfVotes;
             this.formatedMean = this.meanVotes.toFixed(1);
@@ -85,5 +109,6 @@ export class VotingComponent implements AfterContentInit {
             star.isSelected = selected;
         }
         this.calculate(selectedStar.rankValue);
+        this.votingService.sendVote({ beachId: this.beach.BWID, value: selectedStar.rankValue});
     }
 }
