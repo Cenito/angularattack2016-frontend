@@ -42,6 +42,13 @@ export class Beaches {
             }).sort((a, b) => {
                 return a.rawDistance > b.rawDistance ? 1 : -1;
             });
+            if (filtered.length == 0) {
+                // fallback if user is far away. Show 10 closest beaches.
+                var closest = data.sort((a, b) => {
+                    return a.rawDistance > b.rawDistance ? 1 : -1;
+                });
+                filtered = closest.slice(0, 10);
+            }
             this.beaches.push(...filtered);
             
             var travelModes = this.mapsService.travelModes;
